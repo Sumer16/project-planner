@@ -1,4 +1,4 @@
-class Component {
+export class Component {
 
   constructor(hostEleId, insertBef = false) {
     if(hostEleId) {

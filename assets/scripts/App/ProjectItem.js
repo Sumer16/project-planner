@@ -1,4 +1,7 @@
-class ProjectItem {
+// import { ToolTip } from './ToolTip.js';
+import DOMH from '../Utility/DOMHelper.js';
+
+export class ProjectItem {
 
   hasActiveToolTip = false;
 
@@ -16,9 +19,11 @@ class ProjectItem {
     }
     const projElement = document.getElementById(this.id);
     const toolTipText = projElement.dataset.extraInfo;
-    const tooltip = new ToolTip(() => {this.hasActiveToolTip = false}, toolTipText, this.id);
-    tooltip.show();
-    this.hasActiveToolTip = true;
+    import('./ToolTip.js').then(mod => {
+      const tooltip = new mod.ToolTip(() => {this.hasActiveToolTip = false}, toolTipText, this.id);
+      tooltip.show();
+      this.hasActiveToolTip = true;
+    });
   }
 
   connectDrag() {
@@ -41,7 +46,7 @@ class ProjectItem {
   connectSwitchBtn(type){
     const projItemElem = document.getElementById(this.id);
     let switchBtn = projItemElem.querySelector('button:last-of-type');
-    switchBtn = DOMHelper.clearEveListener(switchBtn);
+    switchBtn = DOMH.clearEveListener(switchBtn);
     switchBtn.textContent = type === 'active' ? 'Finish' : 'Activate';
     switchBtn.addEventListener('click', this.updateProjList.bind(null, this.id));
   }

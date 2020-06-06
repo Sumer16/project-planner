@@ -1,4 +1,6 @@
-class ToolTip extends Component{
+import { Component as Compo } from './Component.js';
+
+export class ToolTip extends Compo{
   
   constructor(closeNotifyFun, text, hostElementId){
     super(hostElementId);

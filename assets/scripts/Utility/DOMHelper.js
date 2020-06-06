@@ -1,4 +1,4 @@
-class DOMHelper {
+export default class {
   static clearEveListener(element) {
     const clonedEle = element.cloneNode(true);
     element.replaceWith(clonedEle);
