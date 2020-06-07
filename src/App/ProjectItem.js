@@ -3,10 +3,11 @@ import DOMH from '../Utility/DOMHelper.js';
 
 export class ProjectItem {
 
-  hasActiveToolTip = false;
+  // hasActiveToolTip = false;
 
   constructor (id, updateProjListFunc, type) {
     this.id = id;
+    this.hasActiveToolTip = false;
     this.updateProjList = updateProjListFunc;
     this.connectMoreInfoBtn();
     this.connectSwitchBtn(type);

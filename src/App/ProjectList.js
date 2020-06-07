@@ -2,11 +2,11 @@ import { ProjectItem } from './ProjectItem.js';
 import DOMH from '../Utility/DOMHelper.js';
 
 export class ProjectList {
-  projects = [];
+  // projects = [];
 
   constructor(type){
     this.type = type;
-
+    this.projects = [];
     const projItems = document.querySelectorAll(`#${type}-projects li`);
     for (const projItem of projItems) {
       this.projects.push(new ProjectItem(projItem.id, this.switchProject.bind(this), this.type));
